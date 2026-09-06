@@ -169,7 +169,7 @@ macro_rules! code {
     };
 }
 
-#[naked]
+#[unsafe(naked)]
 pub extern "C-unwind" fn save_context(f: extern "C" fn(&mut Context, *mut ()), ptr: *mut ()) {
     // No need to save caller-saved registers here.
     #[cfg(target_feature = "d")]
